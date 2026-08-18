@@ -6,3 +6,16 @@ def shift_char(char, shift_number)
   end  
   shifted_character_ascii_code.chr
 end
+
+def caesar_cypher(string, shift_number)
+  string_chars_array = string.downcase.split("")
+  string_chars_array.map! {|char| shift_char(char, shift_number)}
+  string_chars_array.join("")
+end
+
+print "enter the message you wanna encrypt: "
+user_message = gets.chomp
+print "enter the number of shifts you wanna use: "
+user_shift_number = gets.chomp
+user_message = caesar_cypher(user_message, user_shift_number.to_i)
+puts "\nyour encrypted message is #{user_message}"
